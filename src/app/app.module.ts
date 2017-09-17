@@ -5,9 +5,19 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialdesignModule } from '../materialdesign/materialdesign.module';
+import { masterFirebaseConfig } from './api-keys';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
+
+export const firebaseConfig = {
+  apiKey: masterFirebaseConfig.apiKey,
+  authDomain: masterFirebaseConfig.authDomain,
+  databaseURL: masterFirebaseConfig.databaseURL,
+  storageBucket: masterFirebaseConfig.storageBucket
+};
 
 @NgModule({
   declarations: [
@@ -20,7 +30,9 @@ import { IndexComponent } from './index/index.component';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialdesignModule
+    MaterialdesignModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
