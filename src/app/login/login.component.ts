@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
     constructor (private userService: UserService, private router: Router) {
         this.userService.getAuth().subscribe(auth => {
-            if (auth) {
+            if (auth.emailVerified) {
                 this.router.navigateByUrl('/dashboard');
             }
         });
