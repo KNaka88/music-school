@@ -8,9 +8,16 @@ import { MaterialdesignModule } from '../materialdesign/materialdesign.module';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { UserService } from './service/user/user.service';
+import { AuthGuardService } from './service/user/auth-guard.service';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -22,7 +29,10 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
+    LoginComponent,
+    SignupComponent,
+    DashboardComponent
   ],
   imports: [
     routing,
@@ -32,9 +42,13 @@ export const firebaseConfig = {
     BrowserAnimationsModule,
     MaterialdesignModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [
+      UserService,
+      AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
