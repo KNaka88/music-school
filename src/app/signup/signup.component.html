@@ -1,0 +1,24 @@
+<form>
+    <md-form-field>
+        <input mdInput id="firstName" type="text" name="firstName" [(ngModel)]="firstName" value="" placeholder="First Name">
+        <md-error>
+            Email is required
+        </md-error>
+    </md-form-field>
+    <md-form-field>
+        <input mdInput id="lastName" type="text" name="lastName" [(ngModel)]="lastName" value="" placeholder="Last Name">
+    </md-form-field>
+    <md-form-field>
+        <input mdInput id="email" type="email" name="email" [(ngModel)]="email" value="" placeholder="Email">
+    </md-form-field>
+    <md-form-field>
+        <input mdInput id="phone" type="number" name="phoneNumber" [(ngModel)]="phoneNumber" value="" placeholder="Phone Number">
+    </md-form-field>
+    <md-form-field>
+        <input mdInput id="password" type="password" name="password" [(ngModel)]="password" value="" placeholder="Password">
+    </md-form-field>
+    <md-form-field>
+        <input mdInput id="confirmPassword" type="password" name="confirmPassword" [(ngModel)]="confirmPassword" value="" placeholder="Confirm Password">
+    </md-form-field>
+    <button md-button (click)="createAccount()">Create Account</button>
+</form>
