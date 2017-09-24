@@ -1,0 +1,9 @@
+Thank you for signup
+
+  <p class="error">Please verify your email</p>
+  <div id="send" *ngIf="!isVerifyEmailSent">
+    <p (click)="sendVerifyEmail()">send me again</p>
+  </div>
+  <div id="sent" *ngIf="isVerifyEmailSent">
+    <p>sent</p>
+  </div>

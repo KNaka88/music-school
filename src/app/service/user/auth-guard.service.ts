@@ -9,17 +9,14 @@ import 'rxjs/add/operator/take';
 @Injectable()
 
 export class AuthGuardService implements CanActivate {
-
     constructor(private afAuth: AngularFireAuth, private router: Router) {}
 
     canActivate(): Observable<boolean> {
       return this.afAuth.authState
         .take(1)
-        .map(authState => !!authState)
-        .do(authenticated => {
-          if (!authenticated) {
-            this.router.navigate(['/login']);
-          }
+        .map(auth => auth.emailVerified)
+        .do(emailVerified => {
+          if (!emailVerified) this.router.navigate(['/verify-account']);
         });
     }
 }

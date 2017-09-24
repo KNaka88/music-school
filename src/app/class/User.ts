@@ -1,13 +1,15 @@
 import { UserService } from '../service/user/user.service';
 
 export class User {
+    uid: string;
     firstName: string;
     lastName: string;
     email: string;
     phoneNumber: number;
     profileImage: string;
 
-    constructor(firstName: string, lastName: string, email: string, phoneNumber: number) {
+    constructor(uid: string, firstName: string, lastName: string, email: string, phoneNumber: number) {
+        this.uid = uid;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

@@ -66,12 +66,11 @@ export class SignupComponent implements OnInit {
 
       createAccount() {
         this.userService.registerUser(this.email, this.password).then( (user) => {
-                let newUser = new User(this.firstName, this.lastName, this.email, this.phoneNumber);
-
+                let newUser = new User(user.uid, this.firstName, this.lastName, this.email, this.phoneNumber);
                 this.userService.createAccount(newUser).then(() => {
                     this.userService.getAuth().subscribe( (auth) => {
                         auth.sendEmailVerification().then( () => {
-                            this.router.navigate(['/dashboard']);
+                            this.router.navigate(['/verify-account']);
                         });
                     });
                 })

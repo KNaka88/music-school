@@ -43,13 +43,12 @@ export class UserService {
         return this.afAuth.authState;
     }
 
-    //END OF AUTHENTICATION//
+    getUser(uid) {
+        return this.afDb.list("users/" + uid);
+    }
 
     createAccount(newUser: User) {
-        console.log('im here');
-        console.log(newUser.uid);
         return this.afDb.object('users/' + newUser.uid).set({
-            uid: newUser.uid,
             firstName: newUser.firstName,
             lastName: newUser.lastName,
             email: newUser.email,

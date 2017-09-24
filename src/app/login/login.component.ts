@@ -51,10 +51,5 @@ export class LoginComponent implements OnInit {
       this.password = '';
     }
 
-    sendVerifyEmail(){
-      this.userService.getAuth().subscribe( (auth) => {
-        this.isVerifyEmailSent = true;
-        auth.sendEmailVerification();
-      });
-    }
+
 }
