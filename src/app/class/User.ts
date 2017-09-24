@@ -1,7 +1,6 @@
 import { UserService } from '../service/user/user.service';
 
 export class User {
-    userService: UserService;
     firstName: string;
     lastName: string;
     email: string;
@@ -13,10 +12,6 @@ export class User {
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-    }
-
-    getAuth() {
-        return this.userService.getAuth();
     }
 
     // get uid() {
