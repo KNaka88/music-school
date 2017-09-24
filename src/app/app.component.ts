@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { DatePipe } from '@angular/common';
+// import { Profile } from './class/profile';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'app works!';
+    // today: number = Date.now();
 }

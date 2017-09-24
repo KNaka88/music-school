@@ -1,4 +1,7 @@
-<h1>
-  {{title}}
-</h1>
-<router-outlet></router-outlet>
+<div class="wrapper">
+    <router-outlet></router-outlet>
+    <div class="push"></div>
+</div>
+<footer class="footer">
+    <p>Copyright (c) {{ today | date:'y' }} </p>
+</footer>
