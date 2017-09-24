@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuthModule, AngularFireAuth} from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase';
 import { User } from '../../class/User';
 import { Observable } from "rxjs/Rx";
 import 'rxjs/add/operator/do';
@@ -54,5 +54,9 @@ export class UserService {
             email: newUser.email,
             phoneNumber: newUser.phoneNumber
         });
+    }
+
+    resetPassword(email: string): firebase.Promise<any> {
+      return firebase.auth().sendPasswordResetEmail(email);
     }
 }
