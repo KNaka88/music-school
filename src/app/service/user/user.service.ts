@@ -17,12 +17,12 @@ export class UserService {
     ){ }
 
     //FIREBASE AUTHENTICATION//
-    getCredentials(email, password){
+    getCredentials(email: string, password: string){
         return firebase.auth.EmailAuthProvider.credential(email, password);
     }
 
     //User log in authentication
-    login(email, password) {
+    login(email:string, password:string) {
         return firebase.auth().signInWithEmailAndPassword(email, password);
     }
 
@@ -31,7 +31,7 @@ export class UserService {
         return firebase.auth().signOut();
     }
 
-    registerUser(email, password) {
+    registerUser(email:string, password:string) {
         return firebase.auth().createUserWithEmailAndPassword(email, password);
     }
 
@@ -43,7 +43,7 @@ export class UserService {
         return this.afAuth.authState;
     }
 
-    getUser(uid) {
+    getUser(uid: string) {
         return this.afDb.list("users/" + uid);
     }
 
