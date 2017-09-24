@@ -19,6 +19,7 @@ import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VerifyAccountComponent } from './verify-account/verify-account.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { UpdatePasswordComponent } from './update-password/update-password.component';
 
 
 export const firebaseConfig = {
@@ -36,7 +37,8 @@ export const firebaseConfig = {
     SignupComponent,
     DashboardComponent,
     VerifyAccountComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    UpdatePasswordComponent
   ],
   imports: [
     routing,

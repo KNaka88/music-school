@@ -59,4 +59,9 @@ export class UserService {
     resetPassword(email: string): firebase.Promise<any> {
       return firebase.auth().sendPasswordResetEmail(email);
     }
+
+    updatePassword(newPassword: string) {
+        let user = firebase.auth().currentUser;
+        return user.updatePassword(newPassword);
+    }
 }
