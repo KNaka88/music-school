@@ -14,6 +14,11 @@ export class VerifyAccountComponent implements OnInit {
     isVerifyEmailSent: boolean = false;
 
     constructor (private userService: UserService, private router: Router) {
+        this.userService.getAuth().subscribe( (auth) => {
+            if (auth === null) {
+                this.router.navigateByUrl('/signup');
+            }
+        });
     }
 
     ngOnInit() {
@@ -23,14 +28,6 @@ export class VerifyAccountComponent implements OnInit {
         this.userService.getAuth().subscribe( (auth) => {
             this.isVerifyEmailSent = true;
             auth.sendEmailVerification();
-        });
-    }
-
-    ngAfterContentChecked() {
-        this.userService.getAuth().subscribe( (auth) => {
-            if (auth.emailVerified) {
-                this.router.navigate(['/dashboard']);
-            }
         });
     }
 }
