@@ -17,6 +17,10 @@ export class VerifyAccountComponent implements OnInit {
         this.userService.getAuth().subscribe( (auth) => {
             if (auth === null) {
                 this.router.navigateByUrl('/signup');
+            } else {
+                if (auth.emailVerified) {
+                    this.router.navigateByUrl('/dashboard');
+                }
             }
         });
     }
